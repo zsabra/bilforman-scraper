@@ -19,7 +19,7 @@ for brand in brands:
         soup = BS(html, "html.parser")
         variants = soup.findAll('td', {'class': 'variant-row'})
         for variant in variants:
-            engineEls = variant.select(".badge.badge-light")
+            engineEls = variant.select("a+.badge.badge-light")
             engines = ",".join(list(map(lambda item: item.text, engineEls)))
             namnEl = variant.select("div.col-10.font-weight-bold > a")
             priceEl = variant.select('.d-inline-block a')
